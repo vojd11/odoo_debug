@@ -1,0 +1,19 @@
+1. start postgres
+
+docker run -d -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo \
+    -e POSTGRES_DB=postgres \
+    -e PGDATA=/var/lib/postgresql/data \
+    --shm-size=1g\
+    --restart always \
+    -p 5432:5432 \
+    --name db-shared postgres:14
+
+2. clone odoo source code inside 16.0/src
+
+git clone -b 16.0 --single-branch --depth=1 https://github.com/odoo/odoo.git
+
+3.in settings.json edit home_directory
+
+4 edit addons_path inside 16.0/conf/odoo-docker.conf
+
+5. Run and Debug
